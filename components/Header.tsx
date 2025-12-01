@@ -61,7 +61,7 @@ export const Header: React.FC = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-white hover:text-brand-gold transition-colors ml-auto z-50"
+          className="md:hidden text-white hover:text-brand-gold transition-colors ml-auto z-50 p-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Menu"
         >
