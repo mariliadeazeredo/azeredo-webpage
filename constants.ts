@@ -1,4 +1,4 @@
-import { ShieldAlert, Scale, FileSpreadsheet, HandCoins, Users, FileWarning, Gavel, TrendingDown, Phone, Search, Lightbulb, UserCheck } from "lucide-react";
+import { ShieldAlert, Scale, FileSpreadsheet, HandCoins, FileWarning, Gavel, TrendingDown, Phone, Search, Lightbulb, UserCheck } from "lucide-react";
 import { ContactInfo, NavItem, ServiceItem } from "./types";
 
 export const CONTACT_INFO: ContactInfo = {
@@ -8,6 +8,8 @@ export const CONTACT_INFO: ContactInfo = {
   address: "Rua Riachuelo, nº 2273",
   city: "Rosário do Sul / RS"
 };
+
+export const WHATSAPP_MESSAGE = "Olá, encontrei seu contato pelo site e gostaria de saber mais sobre a assessoria tributária.";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "Início", href: "#home" },
@@ -20,7 +22,7 @@ export const NAV_ITEMS: NavItem[] = [
 export const SERVICES: ServiceItem[] = [
   {
     title: "Defesa em Execução Fiscal",
-    description: "Atuação técnica na Justiça Federal. Análise de nulidades, prescrição e defesa contra cobranças abusivas.",
+    description: "Atuação técnica na Justiça Federal. Apoio jurídico, prescrição e defesa contra cobranças abusivas.",
     icon: Gavel
   },
   {

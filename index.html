@@ -1,51 +1,147 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Azeredo - Consultoria Estratégica Tributária</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: {
-                blue: '#1e2a4a', // Deep blue from logo/flyer
-                gold: '#fbbf24', // Amber/Gold from logo
-                goldDark: '#d97706',
-              }
-            },
-            fontFamily: {
-              serif: ['Cinzel', 'serif'],
-              sans: ['Lato', 'sans-serif'],
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1e2a4a" />
+
+  <!-- SEO Meta Tags -->
+  <title>Azeredo Advocacia Tributária | Especialistas em Execução Fiscal e Recuperação de Créditos - Rosário do Sul/RS
+  </title>
+  <meta name="description"
+    content="Advocacia tributária especializada em execução fiscal, transações tributárias e recuperação de créditos. Atendimento em Rosário do Sul/RS com soluções estratégicas para empresas e profissionais liberais." />
+  <meta name="keywords"
+    content="advocacia tributária, execução fiscal, transação tributária, parcelamento, recuperação créditos tributários, Rosário do Sul, Rio Grande do Sul, regularização fiscal, débitos receita federal" />
+  <meta name="author" content="João Gustavo de Azeredo" />
+  <link rel="canonical" href="https://www.azeredo-tributario.com.br" />
+
+  <!-- Geo Tags -->
+  <meta name="geo.region" content="BR-RS" />
+  <meta name="geo.placename" content="Rosário do Sul" />
+  <meta name="geo.position" content="-30.2599;-54.9142" />
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Azeredo Advocacia Tributária | Especialistas em Execução Fiscal" />
+  <meta property="og:description"
+    content="Advocacia tributária especializada em execução fiscal, transações tributárias e recuperação de créditos tributários em Rosário do Sul/RS." />
+  <meta property="og:url" content="https://www.azeredo-tributario.com.br" />
+  <meta property="og:site_name" content="Azeredo Advocacia Tributária" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Azeredo Advocacia Tributária | Especialistas em Execução Fiscal" />
+  <meta name="twitter:description"
+    content="Advocacia tributária especializada em execução fiscal, transações tributárias e recuperação de créditos." />
+
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+  <link rel="dns-prefetch" href="https://aistudiocdn.com" />
+
+  <!-- Optimized Font Loading -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#1e2a4a',
+              gold: '#fbbf24',
+              goldDark: '#d97706',
             }
+          },
+          fontFamily: {
+            serif: ['Cinzel', 'serif'],
+            sans: ['Lato', 'sans-serif'],
           }
         }
       }
+    }
+  </script>
+
+  <style>
+    /* Custom scrollbar for better aesthetics */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #1e2a4a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #fbbf24;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #d97706;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Azeredo Advocacia Tributária",
+      "description": "Advocacia tributária especializada em execução fiscal, transações tributárias e recuperação de créditos tributários.",
+      "url": "https://www.azeredo-tributario.com.br",
+      "telephone": "+55-55-3231-3813",
+      "email": "joaogustavodeazeredo@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Riachuelo, nº 2273",
+        "addressLocality": "Rosário do Sul",
+        "addressRegion": "RS",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-30.2599",
+        "longitude": "-54.9142"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "08:30",
+        "closes": "18:00"
+      },
+      "priceRange": "$$",
+      "areaServed": {
+        "@type": "State",
+        "name": "Rio Grande do Sul"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "João Gustavo de Azeredo",
+        "jobTitle": "Advogado Tributarista",
+        "credential": "OAB-RS 35.604"
+      }
+    }
     </script>
-    <style>
-      /* Custom scrollbar for better aesthetics */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #1e2a4a;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #fbbf24;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #d97706;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
+
   <script type="importmap">
 {
   "imports": {
@@ -57,7 +153,10 @@
 }
 </script>
 </head>
-  <body>
-    <div id="root"></div>
-  </body>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>
