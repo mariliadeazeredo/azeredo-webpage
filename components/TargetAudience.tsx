@@ -13,7 +13,7 @@ export const TargetAudience: React.FC = () => {
                   <div>
                      <span className="text-brand-gold font-bold uppercase tracking-widest text-sm">Público Alvo</span>
                      <h2 className="font-serif text-3xl md:text-4xl font-bold text-brand-blue mt-2 mb-6">
-                        Para quem é nossa assessoria?
+                        Para quem é nossa consultoria?
                      </h2>
                      <p className="text-gray-600 text-lg">
                         Se você se enquadra em um dos perfis abaixo e está enfrentando problemas com o Processo de Execução Fiscal na Justiça Federal ou Receita Federal, nós podemos ajudar.
