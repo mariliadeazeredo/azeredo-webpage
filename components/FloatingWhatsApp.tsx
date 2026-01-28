@@ -2,9 +2,23 @@ import React from 'react';
 import { CONTACT_INFO, WHATSAPP_MESSAGE } from '../constants';
 
 export const FloatingWhatsApp: React.FC = () => {
+  const whatsappUrl = `https://wa.me/${CONTACT_INFO.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    // @ts-ignore - gtag_report_conversion is defined in index.html
+    if (typeof window.gtag_report_conversion === 'function') {
+      // @ts-ignore
+      window.gtag_report_conversion(whatsappUrl);
+    } else {
+      window.location.href = whatsappUrl;
+    }
+  };
+
   return (
     <a
-      href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
+      href={whatsappUrl}
+      onClick={handleClick}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 rounded-full hover:scale-110 transition-all shadow-lg animate-pulse"

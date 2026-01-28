@@ -3,6 +3,19 @@ import { ArrowRight, CheckCircle } from 'lucide-react';
 import { CONTACT_INFO, WHATSAPP_MESSAGE } from '../constants';
 
 export const Hero: React.FC = () => {
+  const whatsappUrl = `https://wa.me/${CONTACT_INFO.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+  const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    // @ts-ignore - gtag_report_conversion is defined in index.html
+    if (typeof window.gtag_report_conversion === 'function') {
+      // @ts-ignore
+      window.gtag_report_conversion(whatsappUrl);
+    } else {
+      window.location.href = whatsappUrl;
+    }
+  };
+
   return (
     <section id="home" className="relative min-h-[85vh] flex items-center justify-center bg-brand-blue text-white pt-28 md:pt-36 pb-12 md:pb-20 overflow-hidden">
       {/* Background Image with heavy overlay */}
@@ -26,7 +39,8 @@ export const Hero: React.FC = () => {
 
         <div className="flex flex-col sm:flex-row gap-4 w-full justify-center mb-16 px-4">
           <a
-            href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
+            href={whatsappUrl}
+            onClick={handleWhatsAppClick}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 bg-brand-gold hover:bg-brand-goldDark text-brand-blue font-bold py-3.5 px-8 rounded-sm transition-all transform hover:-translate-y-1 shadow-lg shadow-brand-gold/20 text-base md:text-lg uppercase tracking-wide"

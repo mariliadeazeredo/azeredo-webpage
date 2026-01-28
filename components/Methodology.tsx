@@ -3,6 +3,19 @@ import { STEPS, CONTACT_INFO, WHATSAPP_MESSAGE } from '../constants';
 import { ArrowRight } from 'lucide-react';
 
 export const Methodology: React.FC = () => {
+  const whatsappUrl = `https://wa.me/${CONTACT_INFO.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+  const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    // @ts-ignore - gtag_report_conversion is defined in index.html
+    if (typeof window.gtag_report_conversion === 'function') {
+      // @ts-ignore
+      window.gtag_report_conversion(whatsappUrl);
+    } else {
+      window.location.href = whatsappUrl;
+    }
+  };
+
   return (
     <section id="methodology" className="py-12 md:py-20 bg-brand-blue text-white relative overflow-hidden">
       {/* Decorative BG */}
@@ -43,7 +56,8 @@ export const Methodology: React.FC = () => {
 
         <div className="text-center mt-16">
           <a
-            href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
+            href={whatsappUrl}
+            onClick={handleWhatsAppClick}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-goldDark text-brand-blue font-bold py-3 px-8 rounded-sm transition-colors"

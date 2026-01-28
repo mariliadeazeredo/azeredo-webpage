@@ -3,6 +3,19 @@ import { CONTACT_INFO, WHATSAPP_MESSAGE } from '../constants';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 export const Contact: React.FC = () => {
+  const whatsappUrl = `https://wa.me/${CONTACT_INFO.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+  const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    // @ts-ignore - gtag_report_conversion is defined in index.html
+    if (typeof window.gtag_report_conversion === 'function') {
+      // @ts-ignore
+      window.gtag_report_conversion(whatsappUrl);
+    } else {
+      window.location.href = whatsappUrl;
+    }
+  };
+
   return (
     <section id="contact" className="py-12 md:py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -41,7 +54,7 @@ export const Contact: React.FC = () => {
                   <a href={`tel:${CONTACT_INFO.phone.replace(/\D/g, '')}`} className="text-gray-600 hover:text-brand-gold transition-colors block">
                     {CONTACT_INFO.phone}
                   </a>
-                  <a href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`} className="text-gray-600 hover:text-brand-gold transition-colors block">
+                  <a href={whatsappUrl} onClick={handleWhatsAppClick} className="text-gray-600 hover:text-brand-gold transition-colors block">
                     {CONTACT_INFO.whatsapp} (WhatsApp)
                   </a>
                 </div>

@@ -10,6 +10,20 @@
     gtag('js', new Date());
 
     gtag('config', 'AW-17907550392');
+
+    // Event snippet for Contato conversion page
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof (url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17907550392/HuA3CJmYxO4bELiR_tpC',
+        'event_callback': callback
+      });
+      return false;
+    }
   </script>
 
   <meta charset="UTF-8" />

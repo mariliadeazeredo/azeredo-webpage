@@ -4,6 +4,19 @@ import { Logo } from './Logo';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
 export const Footer: React.FC = () => {
+  const whatsappUrl = `https://wa.me/${CONTACT_INFO.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+  const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    // @ts-ignore - gtag_report_conversion is defined in index.html
+    if (typeof window.gtag_report_conversion === 'function') {
+      // @ts-ignore
+      window.gtag_report_conversion(whatsappUrl);
+    } else {
+      window.location.href = whatsappUrl;
+    }
+  };
+
   return (
     <footer className="bg-brand-blue text-white border-t border-white/10 pt-16 pb-8">
       <div className="container mx-auto px-4">
@@ -67,7 +80,7 @@ export const Footer: React.FC = () => {
                   </div>
                   <div className="flex flex-col">
                     <a href={`tel:${CONTACT_INFO.phone.replace(/\D/g, '')}`} className="hover:text-brand-gold transition-colors">{CONTACT_INFO.phone}</a>
-                    <a href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`} className="hover:text-brand-gold transition-colors">{CONTACT_INFO.whatsapp}</a>
+                    <a href={whatsappUrl} onClick={handleWhatsAppClick} className="hover:text-brand-gold transition-colors">{CONTACT_INFO.whatsapp}</a>
                   </div>
                 </li>
 

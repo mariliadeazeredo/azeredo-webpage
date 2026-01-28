@@ -6,6 +6,18 @@ import { Logo } from './Logo';
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const whatsappUrl = `https://wa.me/${CONTACT_INFO.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+  const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    // @ts-ignore - gtag_report_conversion is defined in index.html
+    if (typeof window.gtag_report_conversion === 'function') {
+      // @ts-ignore
+      window.gtag_report_conversion(whatsappUrl);
+    } else {
+      window.location.href = whatsappUrl;
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +61,8 @@ export const Header: React.FC = () => {
             </a>
           ))}
           <a
-            href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
+            href={whatsappUrl}
+            onClick={handleWhatsAppClick}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-brand-gold hover:bg-brand-goldDark text-brand-blue font-bold py-2 px-5 rounded-sm transition-colors uppercase text-xs tracking-wider"
@@ -83,7 +96,8 @@ export const Header: React.FC = () => {
             </a>
           ))}
           <a
-            href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
+            href={whatsappUrl}
+            onClick={handleWhatsAppClick}
             className="mt-6 flex items-center justify-center gap-2 bg-brand-gold text-brand-blue font-bold py-4 rounded-sm uppercase tracking-wide"
           >
             <Phone size={20} />
